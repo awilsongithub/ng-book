@@ -1,0 +1,26 @@
+.myBorder {
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  width: 6em;
+  padding: 10px;
+}
+.myBorder h3, .myBorder button {
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  background-color: white;
+  margin: 2px;
+  padding: 5px;
+
+}
+/*.myBorder * {
+  margin: 5px;
+  padding: 5px;
+}*/
+.flex-container {
+  display: flex;
+}
+button {
+  width: 3em;
+
+}
