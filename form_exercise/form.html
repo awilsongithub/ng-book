@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>form</title>
+      <link rel="stylesheet" href="libs/bootstrap.min.css">
+      <script type="text/javascript" src='libs/angular.min.js'></script>
+      <script type="text/javascript" src='libs/jquery-1.6.2.min.js'></script>
+  </head>
+
+  <style media="screen">
+    input {
+      margin-bottom: 5px;
+    }
+    .ng-valid {
+      border-color: green;
+    }
+    .ng-invalid {
+      border-color: red;
+    }
+    .ng-pristine {
+      border-color: inherit;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+
+
+  <body ng-app=''>
+    <div class="container">
+
+      <!--
+      ANGULAR MAKES NG AND STD HTML FORM VALID/INVALID PROPERTIES AVAILABLE
+      ON formName.fieldName EXAMPLE: formName.fieldName.$dirty
+      THE formName.fieldName.$error OBJECT ALSO HAS EACH VALIDATION PROPERTY AS A BOOLEAN SO CONDITIONAL ACTIONS CAN BE TAKEN ie with ng-show...
+      -->
+      <form name='signup_form' novalidate ng-submit='signupForm()'>
+        <fieldset>
+          <legend>Signup</legend>
+
+              <label>Name</label>
+              <input
+                class='form-control'
+                type="text"
+                name="name"
+                ng-model='signup.name'
+                ng-minlength=3
+                ng-maxlength=20
+                required
+                placeholder="Name"
+              />
+
+              <div class="error" ng-show='signup_form.name.$dirty && signup_form.name.$invalid'>
+                <small class='error' ng-show='signup_form.name.$error.required'>
+                  Your name is required.
+                </small>
+                <small class='error' ng-show='signup_form.name.$error.minlength'>
+                  Minimum length is 3 characters.
+                </small>
+                <small class='error' ng-show='signup_form.name.$error.maxlength'>
+                  Maximum length is 20 characters.
+                </small>
+
+              </div>
+              <div class="">
+                {{ signup.name }}
+              </div>
+
+          <label>Email</label>
+          <input
+            class='form-control'
+            type="email"
+            name="email"
+            placeholder='Email'
+            ng-model='signup.email'
+            ng-minlength='3'
+            ng-maxlength='30'
+            required
+          />
+          <div class="error" ng-show='signup_form.email.$dirty && signup_form.email.$invalid'>
+            <small class='error' ng-show='signup_form.email.$error.required'>
+              Your email is required.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.minlength'>
+              Minimum length is 3 characters.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.email'>
+              Improper email format.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.maxlength'>
+                Maximum length is 20 characters.
+            </small>
+          </div>
+
+          <label>Username</label>
+          <input
+            type="text"
+            class='form-control'
+            name="username"
+            placeholder='Username'
+            ng-minlength='3'
+            ng-maxlength='20'
+            ng-model='signup.username'
+            ensure-unique='username'
+            required
+          />
+
+          <div class="error" ng-show='signup_form.username.$dirty && signup_form.username.$invalid'>
+            <small class='error' ng-show='signup_form.username.$error.required'>
+              Your email is required.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.minlength'>
+              Minimum length is 3 characters.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.unique'>
+              Username is taken. Please try another username.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.maxlength'>
+                Maximum length is 20 characters.
+            </small>
+          </div>
+
+
+
+          <button type="submit" class='button btn-danger radius form-control'>Submit</button>
+        </fieldset>
+
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
