@@ -3,29 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>form</title>
+    <style media="screen">
+      input { margin-bottom: 5px; }
+      .ng-valid { border-color: green; }
+      .ng-invalid { border-color: red; }
+      .ng-pristine { border-color: inherit; }
+      .error { color: red; }
+    </style>
       <link rel="stylesheet" href="libs/bootstrap.min.css">
       <script type="text/javascript" src='libs/angular.min.js'></script>
       <script type="text/javascript" src='libs/jquery-1.6.2.min.js'></script>
   </head>
 
-  <style media="screen">
-    input {
-      margin-bottom: 5px;
-    }
-    .ng-valid {
-      border-color: green;
-    }
-    .ng-invalid {
-      border-color: red;
-    }
-    .ng-pristine {
-      border-color: inherit;
-    }
-    .error {
-      color: red;
-    }
-  </style>
+  <script type="text/javascript">
+    // directive ensureUnique, $http inject returns a require, link (function)
+    // function scope.$watch model posts to api/check/attrs.ensureUnique and set validity
+    // what are ngModel,
+    // ele,
+    // attrs,
+    // c,
+    // n???
+    var myApp = angular.module('myApp', []);
 
+    myApp.directive('ensureUnique', function($http){
+      return {
+        require: 'ngModel',
+        link: function (scope, ele, attrs, c){
+          scope.$watch(attrs.ngModel, function(n){
+            if (!n) return;
+            $http({
+              method: 'POST',
+              url: 'api/check'+attrs.ensureUnique,
+              data: { 'field': attrs.ensureUnique }
+            }).success(function(data){
+              c.$setValidity('unique', data.isUnique);
+            }).error(function(data){
+              c.$setValidity('unique', false);
+            });
+        });
+      }
+      }
+    });
+
+    function signupForm(){
+      alert('hello world');
+    }
+
+
+// success is passed a f taking data and alling c.setvalid ('unique', data.isUnique)
+  </script>
 
   <body ng-app=''>
     <div class="container">
