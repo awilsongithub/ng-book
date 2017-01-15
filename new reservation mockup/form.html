@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name='viewport' content='width=device-width initial-scale=1.0'>
+    <title>form</title>
+
+    <style media="screen">
+      input { margin-bottom: 5px; }
+      .ng-valid { border-color: green; }
+      .ng-invalid { border-color: red; }
+      .ng-pristine { border-color: inherit; }
+      .error { color: red; }
+      /*div { border: 1px solid lightgrey; }*/
+      .form-control {
+        margin-bottom: 15px;
+      }
+
+
+      #accordion .card-header h6:after {
+        content: '-';
+        position: absolute;
+        right: 20px;
+        top:5px;
+        font-size:30px;
+      }
+      /*<!-- .panel-group .panel-heading a.collapsed:after {
+        content: '+';
+      } -->*/
+
+    </style>
+
+      <!-- BOOTSTRAP 4 CDN PASTE -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+      <!-- separate font awesome -->
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+      <!-- <link rel="stylesheet" href="libs/bootstrap.min.css"> -->
+      <script type="text/javascript" src='libs/angular.min.js'></script>
+      <!-- <script type="text/javascript" src='libs/jquery-1.6.2.min.js'></script> -->
+  </head>
+
+
+
+  <body ng-app=''>
+    <div class="container">
+
+<!-- regular non modal screen like wf -->
+<nav class=" navbar navbar-fixed-top">
+  <h1 class='pull-left'>New Reservation</h1>
+  <h1 class='pull-right'>Cart</h1>
+</nav>
+
+
+<!-- start  -->
+<div class="card">
+  <div class="card-header">
+    <h4>Start Time</h4>
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-6">
+        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+      </div>
+      <div class="col-6">
+        <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- end  -->
+<div class="card">
+  <div class="card-header">
+    <h4>End Time</h4>
+  </div>
+  <div class="card-block">
+    <div class="row">
+      <div class="col-6">
+        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+      </div>
+      <div class="col-6">
+        <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- <div class="form-inline">
+
+</div> -->
+
+
+
+<!-- Add media ng-show slow the list -->
+
+
+<!-- picking from list opens item details modal to add to cart
+  ... takes back to home screen -->
+
+<div id="accordion" role="tablist" aria-multiselectable="true">
+<div class="card">
+  <a data-toggle="collapse" data-parent="#accordion" href="#collapseResources" aria-expanded="false" aria-controls="collapseResources">
+    <div class="card-header" role="tab" id="headingOne">
+          <h4>Add Resource</h4>
+    </div>
+  </a>
+
+  <div id="collapseResources" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div class="card-block">
+      <ul>
+        <!-- Button trigger modal -->
+        <a data-toggle="modal" href="#resourceDetailModal">
+          <li>these would be collapsible
+        </a>
+          <ul>
+            <li>camera x</li>
+            <li>camera x</li>
+            <li>camera x</li>
+            <li>camera x</li>
+          </ul>
+        </li>
+          <li>these would be collapsible</li>
+          <li>these would be collapsible</li>
+          <li>these would be collapsible</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div> <!-- end accordion -->
+
+<!-- resources modal -->
+<!-- Modal -->
+<div class="modal fade" id="resourceDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+            <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-9">
+              Level 1: .col-sm-9
+              <div class="row">
+                <div class="col-8 col-sm-6">
+                  Level 2: .col-8 .col-sm-6
+                </div>
+                <div class="col-4 col-sm-6">
+                  Level 2: .col-4 .col-sm-6
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- add resource works similar to above but uses search fields
+  open search fields..... open result set .... open result detail
+  ... choose item takes back to home screen -->
+
+  <div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapseMedia" aria-expanded="false" aria-controls="collapseMedia">
+      <div class="card-header" role="tab" id="headingOne">
+            <h4>Add Media</h4>
+      </div>
+    </a>
+
+    <div id="collapseMedia" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <label for="">Add Search Filters</label>
+        <input class="form-control" type="text" placeholder='Author' >
+        <input class="form-control" type="text" placeholder='Keyword'>
+        <input class="form-control" type="text" >
+        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary">Show All Media</button>
+      </div>
+    </div>
+  </div>
+  </div> <!-- end accordion -->
+
+<!-- Add Note -->
+<!--  add repeats  -->
+<!-- add pickup option -->
+<!-- place reservation takes you to cart summary with confirm reservation button -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--
+      ANGULAR MAKES NG AND STD HTML FORM VALID/INVALID PROPERTIES AVAILABLE
+      ON formName.fieldName EXAMPLE: formName.fieldName.$dirty
+      THE formName.fieldName.$error OBJECT ALSO HAS EACH VALIDATION PROPERTY AS A BOOLEAN SO CONDITIONAL ACTIONS CAN BE TAKEN ie with ng-show...
+      -->
+      <!-- <form name='signup_form' novalidate ng-submit='signupForm()'>
+        <fieldset>
+          <legend>Signup</legend>
+
+              <label>Name</label>
+              <input
+                class='form-control'
+                type="text"
+                name="name"
+                ng-model='signup.name'
+                ng-minlength=3
+                ng-maxlength=20
+                required
+                placeholder="Name"
+              />
+
+              <div class="error" ng-show='signup_form.name.$dirty && signup_form.name.$invalid'>
+                <small class='error' ng-show='signup_form.name.$error.required'>
+                  Your name is required.
+                </small>
+                <small class='error' ng-show='signup_form.name.$error.minlength'>
+                  Minimum length is 3 characters.
+                </small>
+                <small class='error' ng-show='signup_form.name.$error.maxlength'>
+                  Maximum length is 20 characters.
+                </small>
+
+              </div>
+              <div class="">
+                {{ signup.name }}
+              </div>
+
+          <label>Email</label>
+          <input
+            class='form-control'
+            type="email"
+            name="email"
+            placeholder='Email'
+            ng-model='signup.email'
+            ng-minlength='3'
+            ng-maxlength='30'
+            required
+          />
+          <div class="error" ng-show='signup_form.email.$dirty && signup_form.email.$invalid'>
+            <small class='error' ng-show='signup_form.email.$error.required'>
+              Your email is required.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.minlength'>
+              Minimum length is 3 characters.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.email'>
+              Improper email format.
+            </small>
+            <small class='error' ng-show='signup_form.email.$error.maxlength'>
+                Maximum length is 20 characters.
+            </small>
+          </div>
+
+          <label>Username</label>
+          <input
+            type="text"
+            class='form-control'
+            name="username"
+            placeholder='Username'
+            ng-minlength='3'
+            ng-maxlength='20'
+            ng-model='signup.username'
+            ensure-unique='username'
+            required
+          />
+
+          <div class="error" ng-show='signup_form.username.$dirty && signup_form.username.$invalid'>
+            <small class='error' ng-show='signup_form.username.$error.required'>
+              Your email is required.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.minlength'>
+              Minimum length is 3 characters.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.unique'>
+              Username is taken. Please try another username.
+            </small>
+            <small class='error' ng-show='signup_form.username.$error.maxlength'>
+                Maximum length is 20 characters.
+            </small>
+          </div>
+
+
+
+          <button type="submit" class='button btn-danger radius form-control'>Submit</button>
+        </fieldset>
+
+      </form> -->
+
+
+
+    </div> <!-- end container -->
+
+    <!-- BOOTSTRAP 4 CDN PASTE -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
