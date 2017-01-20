@@ -4,40 +4,16 @@
     <meta charset="utf-8" name='viewport' content='width=device-width initial-scale=1.0'>
     <title>form</title>
 
-    <style media="screen">
-      input { margin-bottom: 5px; }
-      .ng-valid { border-color: green; }
-      .ng-invalid { border-color: red; }
-      .ng-pristine { border-color: inherit; }
-      .error { color: red; }
-      /*div { border: 1px solid lightgrey; }*/
-      .form-control {
-        margin-bottom: 15px;
-      }
-
-
-      #accordion .card-header h6:after {
-        content: '-';
-        position: absolute;
-        right: 20px;
-        top:5px;
-        font-size:30px;
-      }
-      /*<!-- .panel-group .panel-heading a.collapsed:after {
-        content: '+';
-      } -->*/
-
-    </style>
-
       <!-- BOOTSTRAP 4 CDN PASTE -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
       <!-- separate font awesome -->
       <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+      <link rel="stylesheet" href="styles.css" media="screen" title="no title">
 
-      <!-- <link rel="stylesheet" href="libs/bootstrap.min.css"> -->
-      <script type="text/javascript" src='libs/angular.min.js'></script>
-      <!-- <script type="text/javascript" src='libs/jquery-1.6.2.min.js'></script> -->
+      <!-- <script type="text/javascript" src='libs/angular.min.js'></script> -->
+      <script type="text/javascript" src='libs/jquery-1.6.2.min.js'></script>
+      <script src='main.js'></script>
   </head>
 
 
@@ -47,17 +23,15 @@
 
 <!-- regular non modal screen like wf -->
 <nav class=" navbar navbar-fixed-top">
-  <h1 class='pull-left'>New Reservation</h1>
-  <h1 class='pull-right'>Cart</h1>
+  <h2 class='pull-left'>New Reservation</h2>
+  <!-- <h1 class='pull-right'>Cart</h1> -->
 </nav>
 
 
 <!-- start  -->
 <div class="card">
   <div class="card-header">
-    <h4>Start Time</h4>
-  </div>
-  <div class="card-block">
+    <h4>Start</h4>
     <div class="row">
       <div class="col-6">
         <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
@@ -67,15 +41,14 @@
       </div>
     </div>
   </div>
-
+  <!-- <div class="card-block">
+  </div> -->
 </div>
 
 <!-- end  -->
 <div class="card">
   <div class="card-header">
-    <h4>End Time</h4>
-  </div>
-  <div class="card-block">
+    <h4>End </h4>
     <div class="row">
       <div class="col-6">
         <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
@@ -85,7 +58,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 
@@ -138,15 +110,87 @@
 <div class="modal fade" id="resourceDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Nikon Camera #01</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+
       <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
+        <!-- <div class="container-fluid"> -->
+
+          <div class="">
+            <img class='resource-image' src="https://www.bhphotovideo.com/images/categoryImages/desktop/325x325/21008-DSLR-Cameras.jpg" alt="" />
+          </div>
+
+          <div class="resource-details">
+            <p>Usage Fee: $10/hour</p>
+          </div>
+
+          <div class="add-resource">
+            <button data-dismiss="modal" class='btn btn-default'>Reserve One Of This Type</button>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="card">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTimeline" aria-expanded="false" aria-controls="collapseTimeline">
+                <div class="card-header" role="tab" id="headingOne">
+                      Reserve Specific One of Type
+                </div>
+              </a>
+
+              <div id="collapseTimeline" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="table-container card-block">
+
+                  <!-- <img id='animate' onclick='move()' src="https://www.bhphotovideo.com/images/categoryImages/desktop/325x325/21008-DSLR-Cameras.jpg" alt="" /> -->
+
+
+
+                  <a href="#" onclick='left()'><span>reset</span></a>
+
+                  <a href="#" onclick='right()'><span>view availability</span></a>
+
+                  <table id='animate' class="overflow-table table table-sm">
+                    <!-- <thead>
+                      <tr>
+                        <th colspan=>Swipe to see availability</th>
+
+                      </tr>
+                    </thead> -->
+                    <tbody>
+                      <tr>
+                        <td class='item-name'>Nikon Camera Black #01</td>
+                        <td class='avail-color'>color</td>
+                        <td class='avail-color'>color</td>
+                      </tr>
+                      <tr>
+
+                        <td class='item-name'>Nikon Camera Black #01</td>
+                        <td class='avail-color'>color</td>
+                        <td class='avail-color'>color</td>
+                      </tr>
+                      <tr>
+                        <td class='item-name'>Nikon Camera Black #01</td>
+                        <td class='avail-color'>color</td>
+                        <td class='avail-color'>color</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+                </div> <!-- end card-block -->
+              </div>
+            </div>
+            </div> <!-- end accordion -->
+
+
+
+          </div>
+
+          <!-- <div class="row">
             <div class="col-md-4">.col-md-4</div>
             <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
           </div>
@@ -169,12 +213,14 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
+
+
+        <!-- </div> -->  <!-- container-fluid -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Add To Cart</button>
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Add To Cart</button> -->
       </div>
     </div>
   </div>

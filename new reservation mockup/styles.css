@@ -1,0 +1,79 @@
+
+input {
+  margin-bottom: 5px;
+}
+.ng-valid {
+   border-color: green;
+ }
+.ng-invalid {
+  border-color: red;
+}
+.ng-pristine {
+  border-color: inherit;
+}
+.error {
+  color: red;
+}
+/*div { border: 1px solid lightgrey; }*/
+.form-control {
+  margin-bottom: 0;
+}
+.card-block {
+  padding: 15px 10px 0 10px;
+
+}
+.table-container {
+    height: 160px;
+      position: relative;
+}
+
+#animate {
+  position: absolute;
+  width: 1000px;
+  height: auto;
+}
+.overflow-table {
+  overflow: hidden;
+}
+
+.resource-image {
+  height: 100px;
+  width: auto;
+}
+
+.btn {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.item-name {
+  width: 205px;
+}
+.avail-color {
+  background-color: green;
+}
+.card-header{
+  padding: 5px 15px;
+}
+
+
+@media (max-width: @screen-xs-max) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body {
+    color: red;
+  }
+
+}
+
+/*#accordion .card-header h6:after {
+  content: '-';
+  position: absolute;
+  right: 20px;
+  top:5px;
+  font-size:30px;
+}*/
+/*<!-- .panel-group .panel-heading a.collapsed:after {
+  content: '+';
+} -->*/
